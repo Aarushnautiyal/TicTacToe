@@ -34,6 +34,8 @@ submit.addEventListener("click", (e) => {
   restart.addEventListener('click',()=>{
       startGame()
       message1.classList.add("show");
+    player2 = "";
+    player1 = "";
   })
 
   function startGame() {
