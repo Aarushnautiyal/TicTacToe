@@ -5,6 +5,7 @@ const message = document.getElementById('message');
 const message1 = document.getElementById("message1");
 const CLASS_X = 'x';
 const CLASS_O = 'circle';
+const restart = document.querySelector('#restart')
 const WINNING_COMBINATION = [
     [0,1,2],
     [3,4,5],
@@ -30,11 +31,16 @@ submit.addEventListener("click", (e) => {
   }
 
   startGame();
+  restart.addEventListener('click',()=>{
+      startGame()
+      message1.classList.add("show");
+  })
 
   function startGame() {
     cellList.forEach((cell) => {
       cell.classList.remove(CLASS_O);
       cell.classList.remove(CLASS_X);
+    //   message1.classList.add("show");
       cell.removeEventListener("click", handler);
       cell.addEventListener("click", handler, { once: true });
     });
