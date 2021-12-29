@@ -16,7 +16,7 @@ const WINNING_COMBINATION = [
     [0,4,8],
     [2,4,6]
 ]
-let circleTurn = false;
+let circleTurn;
 
 const submit = document.querySelector('#submit')
 
@@ -26,23 +26,26 @@ submit.addEventListener("click", (e) => {
   const player2 = document.querySelector("#o").value;
   if (player1.length > 0 && player2.length > 0) {
     message1.classList.remove("show");
+    // player2 = "";
   } else {
     alert("type both player names");
   }
+//   player2 =""
 
   startGame();
   restart.addEventListener('click',()=>{
-      startGame()
-      message1.classList.add("show");
-    player2 = "";
-    player1 = "";
+      startGame;
+      message1.classList.add('show')
+      message.classList.remove("show");
+
   })
+      
 
   function startGame() {
     cellList.forEach((cell) => {
+        circleTurn=false;
       cell.classList.remove(CLASS_O);
       cell.classList.remove(CLASS_X);
-    //   message1.classList.add("show");
       cell.removeEventListener("click", handler);
       cell.addEventListener("click", handler, { once: true });
     });
